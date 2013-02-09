@@ -6,5 +6,13 @@
  */
 
 return array (
-	
+		/**
+		 * If true, clear the messages when calling the get methods.
+		 */
+		$clearOnGet = true,
+
+		/**
+		 * The format string for date time value
+		 */
+		$datetimeFormat = "%H:%M:%s",
 );
