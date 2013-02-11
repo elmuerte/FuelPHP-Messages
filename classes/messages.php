@@ -126,7 +126,7 @@ class Messages {
 				$msgText = $args[1];
 				$msgTitle = $args[0];
 			}
-			$entry = new Messages\MessageEntry($name, $msgText, $msgTitle);
+			$entry = new MessageEntry($name, $msgText, $msgTitle);
 			static::addEntry($entry);
 		}
 	}
