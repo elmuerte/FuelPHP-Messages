@@ -55,7 +55,7 @@ class Messages {
 			return static::$entries[];
 		}
 		$res = array();
-		foreach (static::$entries[] as $entry) {
+		foreach (static::$entries as $entry) {
 			if ($entry->type == $type) {
 				$res[] = $entry;
 			}
@@ -143,7 +143,7 @@ class Messages {
 			$clear = static::$clearOnGet;
 		}
 		$res = array();
-		foreach (static::$entries[] as $key => $entry) {
+		foreach (static::$entries as $key => $entry) {
 			if ($type != "") {
 				if ($entry->type != $type) {
 					continue;
