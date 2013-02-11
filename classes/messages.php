@@ -12,11 +12,11 @@ class Messages {
 	/**
 	 * Supported message types
 	 */
-	protected static $message_types = array(
+	protected static $messageTypes = array(
 			'warning',
 			'error',
 			'info',
-			'success'
+			'success',
 	);
 
 	/**
@@ -35,7 +35,7 @@ class Messages {
 	 * The format string for date time value
 	 * @var string
 	 */
-	protected static $datetimeFormat = "%H:%M:%s";
+	protected static $dateTimeFormat = "%H:%M:%s";
 
 	/**
 	 * Add a message entry
@@ -52,7 +52,7 @@ class Messages {
 	 */
 	public static function getEntries($type="") {
 		if ($type == "") {
-			return static::$entries[];
+			return static::$entries;
 		}
 		$res = array();
 		foreach (static::$entries as $entry) {
@@ -110,7 +110,7 @@ class Messages {
 		\Config::load('messages', 'messages');
 
 		static::$clearOnGet = \Config::get("messages.clearOnGet", static::$clearOnGet);
-		static::$datetimeFormat = \Config::get("messages.datetimeFormat", static::$datetimeFormat);
+		static::$dateTimeFormat = \Config::get("messages.dateTimeFormat", static::$dateTimeFormat);
 	}
 
 	/**
@@ -119,14 +119,14 @@ class Messages {
 	 * @param array $args
 	 */
 	public static function __callStatic($name, $args) {
-		if (in_array($name, static::$message_types)) {
+		if (in_array($name, static::$messageTypes)) {
 			$msgText = $args[0];
 			$msgTitle = "";
 			if (count($args) == 2) {
 				$msgText = $args[1];
 				$msgTitle = $args[0];
 			}
-			$entry = new MessageEntry($name, $msgText, $msgTitle);
+			$entry = new Messages\MessageEntry($name, $msgText, $msgTitle);
 			static::addEntry($entry);
 		}
 	}

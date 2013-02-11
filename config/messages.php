@@ -14,5 +14,5 @@ return array (
 		/**
 		 * The format string for date time value
 		 */
-		$datetimeFormat = "%H:%M:%s",
+		$dateTimeFormat = "%H:%M:%s",
 );
