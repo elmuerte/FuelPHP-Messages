@@ -138,7 +138,7 @@ class Messages {
 	 * @param string $clear
 	 * @return \View[]
 	 */
-	protected static function getViews($template, $type="",$clear=null) {
+	protected static function getViews($template, $type="", $clear=null) {
 		if ($clear == null) {
 			$clear = static::$clearOnGet;
 		}
@@ -152,9 +152,9 @@ class Messages {
 			if ($clear) {
 				unset(static::$entries[$key]);
 			}
-			$view = \View::forge($template, $entry->toArray());
+			$view = \View::forge($template, $entry->toArray(), false);
 			$view->entry = $entry;
-			$view->set('dateTime', strftime(static::$dateTimeFormat, $entry->timestamp));
+			$view->set('dateTime', strftime(static::$dateTimeFormat, $entry->timestamp), true);
 			$res[] = $view;
 		}
 		return $res;
