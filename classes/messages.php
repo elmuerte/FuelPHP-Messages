@@ -17,6 +17,7 @@ class Messages {
 			'error',
 			'info',
 			'success',
+			'danger',
 	);
 
 	/**
